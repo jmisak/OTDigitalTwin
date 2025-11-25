@@ -1,0 +1,26 @@
+{
+  "name": "OT Mental Health Simulator",
+  "short_name": "OT Simulator",
+  "description": "Practice real conversations. Build real skills. Make a real impact.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#667eea",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "empirenexus.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "health", "medical"],
+  "screenshots": [
+    {
+      "src": "empirenexus.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

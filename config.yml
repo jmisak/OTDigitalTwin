@@ -1,0 +1,314 @@
+# OT Mental Health Simulator - Configuration File
+# Edit these settings to customize the simulator for your needs
+
+# Application Settings
+app:
+  title: "OT Mental Health Training Simulator"
+  theme: "soft"  # Options: soft, default, monochrome, glass
+  port: 7860
+  share_gradio_link: false  # Set to true to generate public URL
+  enable_queue: true
+  max_threads: 4
+
+# Directory Paths
+paths:
+  personas: "./personas"
+  scenarios: "./contexts/scenarios.json"
+  transcripts: "./transcripts"
+  error_log: "./ot_simulator_errors.log"
+
+# Simulation Settings
+simulation:
+  # Response generation
+  response_mode: "local"  # Options: local, api
+  # If using API mode, set ANTHROPIC_API_KEY environment variable
+  
+  # State change sensitivity
+  state_sensitivity:
+    validation_impact: 0.05  # How much validation increases trust
+    advice_impact: -0.08  # How much advice-giving decreases trust
+    open_question_impact: 0.04  # How much open questions increase openness
+    minimizing_impact: -0.06  # How much minimizing language hurts rapport
+  
+  # Response length preferences
+  response_length:
+    min_sentences: 3
+    max_sentences: 8
+    optimal_word_count: 50
+  
+  # Emotional state bounds
+  state_bounds:
+    min_value: 0.0
+    max_value: 1.0
+    crisis_threshold: 0.8  # Anxiety level that triggers crisis mode
+
+# Teaching Features
+teaching:
+  # Enable/disable teaching feedback
+  show_teaching_notes: true
+  show_state_metrics: true
+  show_emotional_memory: true
+  
+  # Feedback detail level
+  feedback_level: "detailed"  # Options: minimal, moderate, detailed
+  
+  # Warning thresholds
+  warnings:
+    trust_drop_threshold: 0.15  # Warn if trust drops by this much
+    anxiety_spike_threshold: 0.2  # Warn if anxiety increases by this much
+    multiple_questions: 2  # Warn if more than this many questions at once
+
+# Visualization Settings
+visualization:
+  # Chart appearance
+  chart_dpi: 100
+  chart_figsize: [5, 5]
+  color_scheme:
+    anxiety: "#e74c3c"  # Red
+    trust: "#3498db"  # Blue
+    openness: "#2ecc71"  # Green
+    physical_discomfort: "#f39c12"  # Orange
+    creative_engagement: "#9b59b6"  # Purple
+    occupational_balance: "#1abc9c"  # Teal
+  
+  # History tracking
+  track_history: true
+  max_history_points: 20
+
+# Logging Settings
+logging:
+  # What to log
+  log_interactions: true
+  log_state_changes: true
+  log_teaching_notes: true
+  
+  # Log formats
+  create_txt_logs: true
+  create_json_logs: true
+  create_session_summaries: true
+  
+  # Log retention
+  max_log_age_days: 90  # Delete logs older than this
+  archive_old_logs: true
+
+# Assessment Settings
+assessment:
+  # Automatic scoring
+  enable_auto_scoring: true
+  
+  # Rapport score weights
+  rapport_weights:
+    trust_weight: 0.4
+    anxiety_weight: 0.3
+    openness_weight: 0.3
+  
+  # Progress thresholds
+  progress_thresholds:
+    excellent: 0.15  # Trust increase > this
+    good: 0.05
+    poor: -0.05
+    critical: -0.15
+
+# Persona Settings
+personas:
+  # Default starting states (if not specified in persona file)
+  defaults:
+    anxiety: 0.5
+    trust: 0.5
+    openness: 0.5
+    mode: "baseline"
+  
+  # Emotional memory
+  memory_enabled: true
+  max_memory_items: 5  # Number of past emotional states to remember
+  
+  # Mode transition thresholds
+  mode_thresholds:
+    decompensating: 
+      anxiety: 0.8
+    triggered:
+      anxiety: 0.6
+      openness: 0.3
+    guarded:
+      trust: 0.4
+      openness: 0.5
+    trusting:
+      trust: 0.6
+      openness: 0.6
+    recovering:
+      anxiety: 0.4
+      trust: 0.5
+
+# Scenario Settings
+scenarios:
+  # Default scenario if none selected
+  default_scenario: "neutral_baseline"
+  
+  # Effect multipliers
+  effect_multipliers:
+    anxiety: 1.0
+    trust: 1.0
+    openness: 1.0
+  
+  # Allow stacking scenarios
+  allow_scenario_stacking: false
+
+# Student Interface Settings
+interface:
+  # Display options
+  show_technical_state: false  # Hide YAML state by default
+  show_conversation_history: true
+  show_current_state_chart: true
+  show_progress_chart: true
+  
+  # Input settings
+  prompt_placeholder: "Type your therapeutic response here..."
+  min_prompt_length: 5  # Characters
+  max_prompt_length: 1000
+  
+  # Guidance
+  show_client_info: true
+  show_scenario_descriptions: true
+  show_instructor_guide: true
+
+# Accessibility Settings
+accessibility:
+  # Text
+  high_contrast_mode: false
+  large_text_mode: false
+  
+  # Screen reader support
+  alt_text_for_charts: true
+  descriptive_labels: true
+
+# Advanced Settings
+advanced:
+  # Debug mode
+  debug_mode: false  # Show additional debugging information
+  
+  # Performance
+  cache_responses: false  # Cache similar prompts (not recommended for learning)
+  lazy_load_personas: true  # Load personas on demand
+  
+  # Experimental features
+  enable_api_fallback: true  # Fall back to local if API fails
+  enable_conversation_branching: false  # Allow "rewind" functionality
+  
+  # Data export
+  enable_csv_export: true
+  enable_json_export: true
+  
+  # Privacy
+  anonymize_student_data: false  # Remove student names from exports
+  encrypt_logs: false
+
+# Instructor Tools
+instructor:
+  # Admin features
+  enable_reset_button: true
+  enable_scenario_override: true
+  
+  # Monitoring
+  enable_live_monitoring: false  # See all student sessions in real-time (future feature)
+  
+  # Batch operations
+  enable_batch_assessment: false  # Assess multiple students at once (future feature)
+
+# Integration Settings
+integrations:
+  # Learning Management Systems
+  lms:
+    enabled: false
+    type: "canvas"  # Options: canvas, blackboard, moodle
+    api_key: ""  # Set if using LMS integration
+  
+  # Anthropic API
+  anthropic:
+    enabled: false  # Enable to use Claude for responses
+    api_key_env_var: "ANTHROPIC_API_KEY"
+    model: "claude-3-5-sonnet-20241022"
+    max_tokens: 500
+    temperature: 0.7
+  
+  # Analytics
+  analytics:
+    enabled: false
+    platform: "none"  # Options: google_analytics, matomo, none
+
+# Update Settings
+updates:
+  check_for_updates: false
+  auto_update: false
+  update_channel: "stable"  # Options: stable, beta
+
+# Terms and Privacy
+legal:
+  require_consent: false  # Require students to agree to terms before use
+  data_retention_days: 365
+  allow_data_sharing: false  # Share anonymized data for research
+
+# Customization
+customization:
+  # Branding
+  institution_name: "Your Institution"
+  logo_path: ""  # Path to institution logo
+  custom_css: ""  # Path to custom CSS file
+  
+  # Language
+  language: "en"  # Options: en (future: es, fr, etc.)
+  
+  # Terminology
+  custom_terms:
+    student_title: "Student"
+    instructor_title: "Instructor"
+    client_title: "Client"
+    session_title: "Session"
+
+# Backup Settings
+backup:
+  auto_backup: false
+  backup_interval_hours: 24
+  backup_location: "./backups"
+  max_backups: 7  # Keep last 7 backups
+
+# Notification Settings
+notifications:
+  # Email notifications (requires SMTP setup)
+  email_enabled: false
+  smtp_server: ""
+  smtp_port: 587
+  smtp_username: ""
+  smtp_password_env_var: "SMTP_PASSWORD"
+  
+  # Notification triggers
+  notify_on_crisis: false  # Email instructor if student encounters crisis
+  notify_on_completion: false  # Email when student completes assignment
+
+# Feature Flags
+features:
+  enable_peer_review: false  # Students can review each other's sessions
+  enable_video_recording: false  # Record sessions as video
+  enable_voice_input: false  # Allow voice responses (future feature)
+  enable_multilingual: false  # Support multiple languages (future feature)
+  enable_ai_instructor: false  # AI teaching assistant (future feature)
+
+---
+# Notes for Instructors:
+# 
+# 1. This file controls global settings for the simulator
+# 2. Most defaults are appropriate for initial use
+# 3. Changes take effect after restarting the simulator
+# 4. Keep a backup before making major changes
+# 5. See README.md for detailed explanations of each setting
+#
+# Common Customizations:
+# - Change app.port if 7860 is already in use
+# - Set app.share_gradio_link: true to create shareable link
+# - Adjust state_sensitivity values to calibrate difficulty
+# - Enable anthropic.enabled to use Claude API for better responses
+# - Customize interface settings for your student population
+#
+# For Technical Support:
+# - Check that YAML formatting is valid (use yamllint)
+# - Review ot_simulator_errors.log for issues
+# - Set advanced.debug_mode: true for detailed diagnostics

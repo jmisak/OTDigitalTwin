@@ -1,0 +1,186 @@
+[
+  {
+    "scenario": "neutral_baseline",
+    "description": "Normal day, no significant stressors",
+    "effects": {
+      "anxiety": 0.0,
+      "trust": 0.0,
+      "openness": 0.0
+    }
+  },
+  {
+    "scenario": "work_conflict",
+    "description": "Had an argument or tension with supervisor/colleague",
+    "effects": {
+      "anxiety": 0.15,
+      "trust": -0.05,
+      "openness": -0.1,
+      "physical_discomfort": 0.1
+    }
+  },
+  {
+    "scenario": "physical_pain_flare",
+    "description": "Experiencing increased physical pain today",
+    "effects": {
+      "anxiety": 0.2,
+      "openness": -0.15,
+      "physical_discomfort": 0.3
+    }
+  },
+  {
+    "scenario": "positive_social_interaction",
+    "description": "Had a good interaction with friend or supportive person",
+    "effects": {
+      "anxiety": -0.1,
+      "trust": 0.1,
+      "openness": 0.15
+    }
+  },
+  {
+    "scenario": "deadline_pressure",
+    "description": "Facing important deadline or performance evaluation",
+    "effects": {
+      "anxiety": 0.25,
+      "openness": -0.1,
+      "physical_discomfort": 0.15
+    }
+  },
+  {
+    "scenario": "poor_sleep_night",
+    "description": "Didn't sleep well last night, feeling exhausted",
+    "effects": {
+      "anxiety": 0.15,
+      "openness": -0.2,
+      "physical_discomfort": 0.2
+    }
+  },
+  {
+    "scenario": "creative_success",
+    "description": "Had a win or success in meaningful activity (Maya: design work; Jack: streaming)",
+    "effects": {
+      "anxiety": -0.15,
+      "trust": 0.05,
+      "openness": 0.1,
+      "creative_engagement": 0.2,
+      "occupational_balance": 0.1
+    }
+  },
+  {
+    "scenario": "comparison_trigger",
+    "description": "Saw peers succeeding or felt behind compared to others",
+    "effects": {
+      "anxiety": 0.2,
+      "openness": -0.1,
+      "trust": -0.05
+    }
+  },
+  {
+    "scenario": "family_pressure",
+    "description": "Family questioning career choices or expressing disappointment",
+    "effects": {
+      "anxiety": 0.25,
+      "openness": -0.15,
+      "trust": -0.1
+    }
+  },
+  {
+    "scenario": "boundary_violation",
+    "description": "Someone overstepped boundaries or made unreasonable demands",
+    "effects": {
+      "anxiety": 0.3,
+      "trust": -0.15,
+      "openness": -0.2
+    }
+  },
+  {
+    "scenario": "positive_rest_activity",
+    "description": "Actually took time for self-care or meaningful leisure",
+    "effects": {
+      "anxiety": -0.2,
+      "openness": 0.1,
+      "physical_discomfort": -0.1,
+      "occupational_balance": 0.15
+    }
+  },
+  {
+    "scenario": "isolation_loneliness",
+    "description": "Feeling disconnected and lonely despite being busy",
+    "effects": {
+      "anxiety": 0.2,
+      "openness": -0.1
+    }
+  },
+  {
+    "scenario": "panic_attack_recent",
+    "description": "Had a panic attack recently (within last 24-48 hours)",
+    "effects": {
+      "anxiety": 0.4,
+      "openness": -0.2,
+      "physical_discomfort": 0.25,
+      "trust": -0.1
+    }
+  },
+  {
+    "scenario": "therapeutic_breakthrough",
+    "description": "Had an insight or realization in previous session",
+    "effects": {
+      "anxiety": -0.1,
+      "trust": 0.2,
+      "openness": 0.25
+    }
+  },
+  {
+    "scenario": "financial_stress",
+    "description": "Money worries, bills piling up, can't afford things needed",
+    "effects": {
+      "anxiety": 0.25,
+      "openness": -0.1
+    }
+  },
+  {
+    "scenario": "occupational_success",
+    "description": "Meaningful engagement in valued occupation (work, hobby, social)",
+    "effects": {
+      "anxiety": -0.15,
+      "trust": 0.1,
+      "openness": 0.15,
+      "creative_engagement": 0.2,
+      "occupational_balance": 0.2
+    }
+  },
+  {
+    "scenario": "medication_change",
+    "description": "Recently started, stopped, or changed psychiatric medication",
+    "effects": {
+      "anxiety": 0.15,
+      "openness": 0.1
+    }
+  },
+  {
+    "scenario": "confrontation_avoidance",
+    "description": "Avoiding necessary conversation or decision",
+    "effects": {
+      "anxiety": 0.2,
+      "openness": -0.15
+    }
+  },
+  {
+    "scenario": "progress_recognition",
+    "description": "Someone noticed or validated positive changes",
+    "effects": {
+      "anxiety": -0.1,
+      "trust": 0.2,
+      "openness": 0.2
+    }
+  },
+  {
+    "scenario": "overwhelming_demands",
+    "description": "Multiple competing demands, feeling unable to cope",
+    "effects": {
+      "anxiety": 0.35,
+      "openness": -0.2,
+      "physical_discomfort": 0.2,
+      "occupational_balance": -0.2
+    }
+  }
+]
