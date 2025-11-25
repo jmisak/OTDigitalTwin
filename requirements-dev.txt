@@ -1,0 +1,10 @@
+# Development & CI dependencies
+pytest>=7.0
+coverage>=7.0
+flake8>=6.0
+black>=24.0
+mypy>=1.9
+pre-commit>=3.0
+
+# Optional: tools for spinning up simple servers or checking manifests
+python-dotenv>=1.0

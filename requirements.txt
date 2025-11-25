@@ -18,3 +18,7 @@ huggingface-hub>=0.20.0
 # SpeechRecognition
 # TTS
 # pydub
+
+# Dev / test dependencies
+pytest>=7.0
+coverage>=7.0
